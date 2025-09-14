@@ -23,6 +23,14 @@ jobs:
       with: 
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Build docker image
+      run: |
+        docker build -t marcomignacco/docker-graphql:2.0.0 .
+
+    - name: Push docker image
+      run: |
+        docker push marcomignacco/docker-graphql:2.0.0
 
     # - name: Build the Docker image
     #   run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
